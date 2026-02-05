@@ -308,15 +308,6 @@ Esta arquitetura é ideal para:
 - **Microsserviços:** Segregação de serviços em sub-redes diferentes
 - **Aplicações Híbridas:** Integração com datacenter on-premises via VPN
 
-## 📈 Próximos Passos Sugeridos
-
-- [ ] Implementar Application Load Balancer (ALB) para distribuição de tráfego
-- [ ] Adicionar Auto Scaling Group para escalabilidade automática
-- [ ] Configurar Amazon RDS na sub-rede privada
-- [ ] Implementar VPC Peering ou Transit Gateway para conectividade entre VPCs
-- [ ] Adicionar AWS WAF para proteção de aplicações web
-- [ ] Configurar CloudWatch Alarms para monitoramento
-
 ## 📚 Recursos Adicionais
 
 - [Documentação AWS VPC](https://docs.aws.amazon.com/vpc/)
@@ -344,8 +335,8 @@ Este laboratório contribui para a preparação de:
 
 ## 👨‍💻 Autor
 
-**Matheus Lima*  
-Estudante AWS re/Start - Escola da Nuvem  
+**Matheus Lima**  
+Estudante - Escola da Nuvem  
 
 ---
 
@@ -357,7 +348,6 @@ Este projeto é parte do programa educacional AWS re/Start e está disponível p
 
 <div align="center">
 
-**⭐ Se este laboratório ajudou nos seus estudos de Cloud, considere dar uma estrela!**
 
 [![AWS](https://img.shields.io/badge/AWS-reStart-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/training/restart/)
 [![VPC](https://img.shields.io/badge/Amazon-VPC-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/vpc/)
