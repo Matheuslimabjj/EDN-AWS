@@ -264,7 +264,7 @@ Este laboratório contribui para a preparação das seguintes certificações:
 
 ## 👨‍💻 Autor
 
-**[Matheus Lima]**  
+**Matheus Lima**  
 Estudante - Escola da Nuvem  
 
 ---
