@@ -2,7 +2,7 @@
 
 ## 📋 Sobre o Lab
 
-Este laboratório faz parte do programa **AWS Academy** através da **Escola da Nuvem**, focado em práticas de gerenciamento de identidades e acessos na AWS.
+Este laboratório faz parte do **Programa Re/Start AWS** através da **Escola da Nuvem**, focado em práticas de gerenciamento de identidades e acessos na AWS.
 
 **Duração:** ~60 minutos  
 **Nível:** Fundamental  
