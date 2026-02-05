@@ -4,10 +4,6 @@
 
 Este laboratório faz parte do programa **AWS re/Start** através da **Escola da Nuvem**, focado na construção de uma infraestrutura de rede completa na AWS usando VPC (Virtual Private Cloud) e lançamento de um servidor web em EC2.
 
-**Duração:** ~45 minutos  
-**Nível:** Intermediário  
-**Serviços Principais:** Amazon VPC, Amazon EC2, Security Groups
-
 ## 🎯 Objetivos
 
 Ao concluir este laboratório, pratiquei:
