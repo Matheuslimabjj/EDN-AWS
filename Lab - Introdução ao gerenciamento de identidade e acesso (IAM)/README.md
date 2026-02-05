@@ -268,26 +268,22 @@ Este laboratório contribui para a preparação das seguintes certificações:
 
 ## 👨‍💻 Autor
 
-**[Seu Nome]**  
-Estudante AWS Academy - Escola da Nuvem  
-📧 [seu-email@exemplo.com]  
-💼 [LinkedIn](seu-linkedin) | 🐙 [GitHub](seu-github)
+**[Matheus Lima]**  
+Estudante - Escola da Nuvem  
 
 ---
 
 ## 📄 Licença
 
-Este projeto é parte do programa educacional AWS Academy e está disponível para fins de estudo e portfólio.
+Este projeto é parte do Programa Re/Start AWS e está disponível para fins de estudo e portfólio.
 
 ---
 
 <div align="center">
 
-**⭐ Se este repositório foi útil para seus estudos, considere dar uma estrela!**
 
 [![AWS](https://img.shields.io/badge/AWS-Academy-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/training/awsacademy/)
 [![IAM](https://img.shields.io/badge/AWS-IAM-569A31?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/iam/)
 
-**Última atualização:** Fevereiro 2024
 
 </div>
