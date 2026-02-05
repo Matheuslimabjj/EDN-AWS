@@ -7,3 +7,5 @@
 **Sobre o Programa**
 
 *O re/Start é um programa intensivo de capacitação técnica que prepara profissionais para carreiras em nuvem. Durante o curso, são abordados conceitos fundamentais e avançados, com foco prático em arquitetura AWS.*
+
+---
