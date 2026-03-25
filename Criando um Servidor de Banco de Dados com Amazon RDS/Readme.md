@@ -220,6 +220,7 @@ Este laboratório contribui para a preparação das seguintes certificações:
 ## 👨‍💻 Autor
 
 **Matheus Lima**
+
 Estudante — Escola da Nuvem | Programa Re/Start AWS
 
 ---
