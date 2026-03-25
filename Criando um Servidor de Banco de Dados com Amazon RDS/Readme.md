@@ -49,10 +49,10 @@ A instância RDS primária fica na AZ A e replica sincronicamente para a secund�
 
 Criei o **DB Security Group** na VPC do laboratório, com uma regra de entrada liberando a porta **3306 (MySQL/Aurora)** exclusivamente para o **Web Security Group** — aplicando o princípio do menor privilégio para que apenas o servidor web possa acessar o banco.
 
-![Grupos de Segurança VPC](./screenshots/security-groups-lista.png)
+![Grupos de Segurança VPC](./Screenshots/security-groups-lista.png)
 *Listagem dos grupos de segurança existentes na VPC do Lab*
 
-![Criar Grupo de Segurança](./screenshots/criar-security-group.png)
+![Criar Grupo de Segurança](./Screenshots/criar-security-group.png)
 *Configuração do DB Security Group com regra de entrada MySQL na porta 3306*
 
 **Configurações aplicadas:**
@@ -66,10 +66,10 @@ Criei o **DB Security Group** na VPC do laboratório, com uma regra de entrada l
 
 Configurei o **DB Subnet Group** associando as sub-redes privadas em duas Zonas de Disponibilidade distintas, requisito obrigatório para implantações Multi-AZ no Amazon RDS.
 
-![Lista de Grupos de Sub-redes](./screenshots/subnet-groups-lista.png)
+![Lista de Grupos de Sub-redes](./Screenshots/subnet-groups-lista.png)
 *Painel de Grupos de Sub-redes do RDS antes da criação*
 
-![Criar Grupo de Sub-redes](./screenshots/criar-subnet-group.png)
+![Criar Grupo de Sub-redes](./Screenshots/criar-subnet-group.png)
 *Criação do DB Subnet Group com Private Subnet 1 (us-west-2a) e Private Subnet 2 (us-west-2b)*
 
 **Sub-redes selecionadas:**
@@ -85,19 +85,19 @@ Configurei o **DB Subnet Group** associando as sub-redes privadas em duas Zonas 
 
 Provisionei uma instância MySQL Multi-AZ com as configurações abaixo, que garantem resiliência automática com failover para a instância em espera em caso de falha da AZ primária.
 
-![Confirmação de Criação do Subnet Group e Início do Banco](./screenshots/db-subnet-criado-bancos.png)
+![Confirmação de Criação do Subnet Group e Início do Banco](./Screenshots/db-subnet-criado-bancos.png)
 *Banner de confirmação do DB Subnet Group e tela de Bancos de Dados aguardando criação*
 
-![Opções do Mecanismo RDS](./screenshots/criar-banco-mecanismo.png)
+![Opções do Mecanismo RDS](./Screenshots/criar-banco-mecanismo.png)
 *Seleção do mecanismo MySQL com modelo Dev/Test e implantação Multi-AZ (2 instâncias)*
 
-![Configuração Adicional - Nome e Backup](./screenshots/criar-banco-config-adicional.png)
+![Configuração Adicional - Nome e Backup](./Screenshots/criar-banco-config-adicional.png)
 *Nome do banco de dados inicial definido como "lab" e backup automatizado desabilitado para o laboratório*
 
-![Banco de Dados Sendo Criado](./screenshots/banco-criando.png)
+![Banco de Dados Sendo Criado](./Screenshots/banco-criando.png)
 *Instância lab-db em status "Criando" — implantação Multi-AZ em andamento*
 
-![Banco de Dados Disponível](./screenshots/banco-disponivel.png)
+![Banco de Dados Disponível](./Screenshots/banco-disponivel.png)
 *Instância lab-db criada com sucesso — status "Modificando", endpoint já disponível para conexão*
 
 **Configurações da instância:**
@@ -124,7 +124,7 @@ Provisionei uma instância MySQL Multi-AZ com as configurações abaixo, que gar
 
 Com a instância disponível, acessei o aplicativo web rodando no Web Server via IP público e configurei a conexão com o RDS usando o endpoint gerado.
 
-![Formulário de Conexão RDS no App Web](./screenshots/app-rds-form.png)
+![Formulário de Conexão RDS no App Web](./Screenshots/app-rds-form.png)
 *Aplicativo web com endpoint, banco de dados, usuário e senha configurados*
 
 **Configurações de conexão:**
