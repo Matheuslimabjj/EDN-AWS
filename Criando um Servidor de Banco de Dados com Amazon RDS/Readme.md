@@ -21,7 +21,7 @@ A infraestrutura parte de uma VPC com sub-redes públicas e privadas em duas Zon
 
 ### Infraestrutura Final
 
-![Diagrama da Arquitetura Final](./screenshots/arquitetura-final.png)
+![Diagrama da Arquitetura Final](./Screenshots/arquitetura-final.png)
 
 Ao final do laboratório, a infraestrutura conta com:
 
