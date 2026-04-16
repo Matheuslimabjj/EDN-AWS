@@ -14,7 +14,7 @@ Ao concluir este laboratório, pratiquei:
 
 ## 🏗️ Arquitetura do Lab
 
-![Diagrama da Arquitetura](./Screenshots/00-arquitetura.png)
+![Diagrama da Arquitetura](./00-arquitetura.png)
 *Fluxo do lab: usuário mediacouser acessa o bucket S3 via Console ou CLI Host, alterações no bucket disparam notificações para o tópico SNS s3NotificationTopic, que envia e-mail ao administrador*
 
 ### Infraestrutura Utilizada
@@ -66,7 +66,7 @@ Com acesso ao **EC2 Instance Connect**, o AWS CLI foi configurado com as credenc
 
 O bucket `cafe-d0ic3` foi criado na região `us-west-2` e populado com as imagens iniciais do diretório `~/initial-images/` via `aws s3 sync`.
 
-![Criação do bucket e sync das imagens](./Screenshots/01-bucket-criado-sync.png)
+![Criação do bucket e sync das imagens](./01-bucket-criado-sync.png)
 *Terminal mostrando: `aws s3 mb` criando o bucket `cafe-d0ic3`, `aws s3 sync` fazendo upload de Cup-of-Hot-Chocolate.jpg, Donuts.jpg e Strawberry-Tarts.jpg (total: 3 objetos, 1.1 MiB), e `aws s3 ls` confirmando os arquivos no bucket*
 
 **Comandos executados:**
@@ -91,7 +91,7 @@ aws s3 ls s3://cafe-d0ic3/images/ --human-readable --summarize
 
 As políticas do grupo `mediaco` foram revisadas no Console IAM: `IAMUserChangePassword` (gerenciada pela AWS) e `mediaCoPolicy` (inline), que define permissões de listagem, leitura, escrita e exclusão de objetos no prefixo `cafe-*/images/*`.
 
-![Políticas do grupo mediaco no IAM](./Screenshots/02-iam-mediaco-politicas.png)
+![Políticas do grupo mediaco no IAM](./02-iam-mediaco-politicas.png)
 *Console IAM mostrando o grupo `mediaco` com as duas políticas: `IAMUserChangePassword` (gerenciada pela AWS, expandida mostrando permissão `iam:ChangePassword`) e `mediaCoPolicy` (inline, com as actions `s3:ListAllMyBuckets`, `s3:GetBucketLocation` e `s3:ListBucket` visíveis)*
 
 **Statements da `mediaCoPolicy`:**
@@ -103,7 +103,7 @@ As políticas do grupo `mediaco` foram revisadas no Console IAM: `IAMUserChangeP
 
 A chave de acesso do `mediacouser` foi criada via **Security credentials → Create access key** e o arquivo `mediacouser_accessKeys.csv` foi baixado.
 
-![Chave de acesso do mediacouser criada](./Screenshots/03-mediacouser-accesskeys.png)
+![Chave de acesso do mediacouser criada](./03-mediacouser-accesskeys.png)
 *Console IAM na página do usuário `mediacouser` — modal de importação do CSV exibindo Access Key ID e Secret Access Key recém-gerados. O resumo mostra que o usuário pertence ao grupo `mediaco` e herda as políticas `IAMUserChangePassword` e `mediaCoPolicy`*
 
 #### 3.3 — Testes de permissão como mediacouser
@@ -112,25 +112,25 @@ Logado no Console como `mediacouser`, foram testados os casos de uso previstos:
 
 **Teste de visualização (GET):** Donuts.jpg aberta com sucesso.
 
-![Imagem Donuts.jpg aberta pelo mediacouser](./Screenshots/04-donuts-aberto.png)
+![Imagem Donuts.jpg aberta pelo mediacouser](./05-donuts-aberto.png)
 *Imagem `Donuts.jpg` exibida em nova aba do navegador após seleção no Console S3 — confirmando permissão de leitura do mediacouser sobre objetos em `cafe-d0ic3/images/`*
 
 **Teste de upload (PUT):** Arquivo de imagem enviado com sucesso para `s3://cafe-d0ic3/images/`.
 
-![Upload bem-sucedido como mediacouser](./Screenshots/05-upload-bem-sucedido.png)
+![Upload bem-sucedido como mediacouser](./06-upload-bem-sucedido.png)
 *Tela "Upload: status" mostrando 1 arquivo (40.7 KB) enviado com sucesso para `s3://cafe-d0ic3/images/` — confirmando permissão de escrita do mediacouser*
 
 **Teste de exclusão (DELETE):** Cup-of-Hot-Chocolate.jpg excluída com sucesso.
 
-![Tela de exclusão de objeto S3](./Screenshots/06-delete-cup-chocolate.png)
+![Tela de exclusão de objeto S3](./07-delete-cup-chocolate.png)
 *Página "Excluir objetos" com `Cup-of-Hot-Chocolate.jpg` (308.7 KB) listado como objeto a ser excluído — campo de confirmação "excluir" aguardando digitação antes de prosseguir*
 
-![Status da exclusão bem-sucedida](./Screenshots/07-excluir-objeto-status.png)
+![Status da exclusão bem-sucedida](./09-excluir-objeto-status.png)
 *Tela "Excluir objetos: status" confirmando "1 objeto, 308.7 KB — Excluído com êxito" e 0 falhas — validando a permissão de exclusão do mediacouser*
 
 **Teste não autorizado (alteração de permissões):** Acesso negado ao tentar visualizar as configurações de permissão do bucket.
 
-![Permissões negadas para mediacouser](./Screenshots/08-permissoes-negadas-mediacouser.png)
+![Permissões negadas para mediacouser](./08-permissoes-negadas-mediacouser.png)
 *Aba "Permissões" do bucket `cafe-d0ic3` mostrando múltiplos erros "Acesso negado": o mediacouser não tem permissão para `s3:GetBucketPublicAccessBlock`, `s3:GetBucketPolicy`, `s3:GetBucketOwnershipControls` e `s3:GetBucketAcl` — confirmando que alterações de permissão são bloqueadas como esperado*
 
 ---
@@ -141,10 +141,10 @@ Logado no Console como `mediacouser`, foram testados os casos de uso previstos:
 
 O tópico `s3NotificationTopic` foi criado no Amazon SNS e o ARN copiado. A política de acesso foi editada para permitir que o bucket `cafe-d0ic3` publique mensagens no tópico.
 
-![Tópico SNS criado com sucesso](./Screenshots/09-sns-topic-criado.png)
+![Tópico SNS criado com sucesso](./10-sns-topic-criado.png)
 *Console SNS mostrando o tópico `s3NotificationTopic` recém-criado (tipo Padrão) com banner "Tópico criado com êxito". A aba Assinaturas ainda mostra 0 assinaturas — configuração de e-mail feita na sequência*
 
-![Política de acesso do SNS configurada](./Screenshots/10-sns-access-policy.png)
+![Política de acesso do SNS configurada](./11-sns-access-policy.png)
 *Página "Editar tópico" do `s3NotificationTopic` com a política de acesso expandida — JSON exibindo o statement `AllowPublishFromS3` que concede `SNS:Publish` ao principal `s3.amazonaws.com`, restrito ao bucket `arn:aws:s3:::cafe-d0ic3` via condição `ArnLike`*
 
 **Política de acesso configurada:**
@@ -169,7 +169,7 @@ O tópico `s3NotificationTopic` foi criado no Amazon SNS e o ARN copiado. A pol�
 
 O arquivo `s3EventNotification.json` foi criado e associado ao bucket via `aws s3api put-bucket-notification-configuration`, configurando notificações para eventos `s3:ObjectCreated:*` e `s3:ObjectRemoved:*` no prefixo `images/`.
 
-![Terminal com put-bucket-notification-configuration](./Screenshots/11-terminal-bucket-notificacao.png)
+![Terminal com put-bucket-notification-configuration](./12-terminal-bucket-notificacao.png)
 *Sequência no terminal: `vi s3EventNotification.json` (criação do arquivo de configuração), segundo `aws configure` com credenciais do voclabs/user, e execução do `aws s3api put-bucket-notification-configuration --bucket cafe-d0ic3 --notification-configuration file://s3EventNotification.json` concluído sem erro*
 
 **Configuração de notificação:**
@@ -189,7 +189,7 @@ O arquivo `s3EventNotification.json` foi criado e associado ao bucket via `aws s
 
 **E-mail de teste recebido:** Após a configuração, o S3 enviou automaticamente um `s3:TestEvent` ao tópico SNS.
 
-![E-mail s3:TestEvent recebido](./Screenshots/12-email-testevent.png)
+![E-mail s3:TestEvent recebido](./13-email-testevent.png)
 *E-mail da AWS Notifications com evento `s3:TestEvent` às 11:17Z, confirmando que a configuração de notificação foi aplicada com sucesso ao bucket `cafe-d0ic3`*
 
 ---
@@ -231,12 +231,12 @@ aws s3api put-object-acl \
 # An error occurred (AccessDenied) — BlockPublicAcls bloqueou como esperado
 ```
 
-![Terminal com todas as operações da Task 5](./Screenshots/13-terminal-task5-completo.png)
+![Terminal com todas as operações da Task 5](./14-terminal-task5-completo.png)
 *Terminal mostrando a sequência completa da Task 5: (1) `put-object` do Caramel-Delight.jpg retornando ETag e ServerSideEncryption; (2) `get-object` do Donuts.jpg retornando metadados (ContentType, ContentLength, ETag); (3) `delete-object` do Strawberry-Tarts.jpg executado silenciosamente; (4) `put-object-acl` resultando em `AccessDenied` por bloqueio de ACL pública*
 
 **E-mails de notificação recebidos:**
 
-![E-mails de notificação S3 recebidos](./Screenshots/14-emails-notificacao.png)
+![E-mails de notificação S3 recebidos](./16-email-objectcreated.png)
 *Caixa de entrada mostrando dois e-mails da AWS Notifications: (1) às 08:17 — `s3:TestEvent` confirmando a configuração do tópico; (2) às 08:37 — evento `ObjectCreated:Put` para `images/Caramel-Delight.jpg` com detalhes completos do evento incluindo userIdentity, sourceIPAddress, bucket e object key*
 
 ---
