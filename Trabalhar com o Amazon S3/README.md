@@ -14,7 +14,7 @@ Ao concluir este laboratório, pratiquei:
 
 ## 🏗️ Arquitetura do Lab
 
-![Diagrama da Arquitetura](./00-arquitetura.png)
+![Diagrama da Arquitetura](./Screenshots/00-arquitetura.png)
 *Fluxo do lab: usuário mediacouser acessa o bucket S3 via Console ou CLI Host, alterações no bucket disparam notificações para o tópico SNS s3NotificationTopic, que envia e-mail ao administrador*
 
 ### Infraestrutura Utilizada
